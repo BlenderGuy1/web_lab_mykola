@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Обирай маршрути, гідів і походи Карпатами разом із Зеленими стежками Карпат.">
+<title>Зелені стежки Карпат — походи та тури</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Raleway', 'sans-serif'] } } } };
+</script>
+<style type="text/tailwindcss">
+  @layer components {
+    .nav-link { @apply text-slate-700 transition-colors hover:text-green-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-700; }
+    .btn { @apply inline-flex min-h-[44px] items-center justify-center rounded-lg bg-green-700 px-5 py-3 font-semibold text-white transition-colors hover:bg-green-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700; }
+    .btn-alt { @apply inline-flex min-h-[44px] items-center justify-center rounded-lg border border-green-700 px-5 py-3 font-semibold text-green-800 transition-colors hover:bg-green-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700; }
+    .eyebrow { @apply mb-2 text-sm font-semibold text-green-700; }
+    .h2 { @apply font-display text-3xl font-bold text-slate-900; }
+    .lead { @apply mt-2 text-slate-600; }
+    .field { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700; }
+    .label { @apply mb-1 block text-sm font-medium text-slate-700; }
+    .tour { @apply flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg; }
+    .link-foot { @apply rounded-sm transition-colors hover:text-green-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400; }
+  }
+</style>
+</head>
+
+<body class="bg-white font-sans text-slate-800 antialiased">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <a href="#" class="flex items-center gap-2 font-display text-xl font-bold text-green-800 transition-colors hover:text-green-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-700" aria-label="Зелені стежки Карпат — на головну">
+      <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-green-700 text-white" aria-hidden="true"><i class="fa-solid fa-mountain"></i></span>
+      Зелені стежки Карпат
+    </a>
+    <nav aria-label="Головна навігація" class="hidden items-center gap-6 md:flex">
+      <a class="nav-link" href="#tours">Тури</a>
+      <a class="nav-link" href="#advantages">Переваги</a>
+      <a class="nav-link" href="#calculator">Калькулятор</a>
+      <a class="nav-link" href="#guides">Гіди</a>
+      <a class="nav-link" href="#contacts">Контакти</a>
+      <a class="btn" href="#tours">Знайти свій тур</a>
+    </nav>
+    <button id="menu-btn" type="button" class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-slate-800 transition-colors hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700 md:hidden" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-6 w-6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <nav id="mobile-navigation" aria-label="Мобільна навігація" class="hidden flex-col gap-1 border-t border-slate-200 px-6 py-3 md:hidden">
+    <a class="nav-link py-3" href="#tours">Тури</a>
+    <a class="nav-link py-3" href="#advantages">Переваги</a>
+    <a class="nav-link py-3" href="#calculator">Калькулятор</a>
+    <a class="nav-link py-3" href="#guides">Гіди</a>
+    <a class="nav-link py-3" href="#contacts">Контакти</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="bg-slate-100" aria-labelledby="hero-title">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
+      <div>
+        <p class="eyebrow">Твоя пригода починається тут</p>
+        <h1 id="hero-title" class="font-display text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl">Відкрий Карпати своїм маршрутом</h1>
+        <p class="mt-5 max-w-xl text-lg leading-8 text-slate-600">Обирай гору, складність і дату походу. Ми допоможемо знайти маршрут та досвідченого гіда для твоєї наступної пригоди.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="btn" href="#tours">Знайти свій тур</a>
+          <a class="btn-alt" href="#advantages">Як це працює</a>
+        </div>
+        <p class="mt-5 text-sm text-slate-500">Маршрути для початківців і досвідчених мандрівників</p>
+      </div>
+      <div class="relative flex aspect-[4/3] items-end overflow-hidden rounded-3xl bg-gradient-to-b from-sky-100 to-green-100" role="img" aria-label="Стилізована ілюстрація гірського пейзажу Карпат">
+        <div class="absolute right-10 top-8 h-16 w-16 rounded-full bg-amber-200"></div>
+        <i class="fa-solid fa-mountain absolute -left-4 bottom-0 text-[16rem] leading-none text-green-600/60" aria-hidden="true"></i>
+        <i class="fa-solid fa-mountain absolute -right-6 bottom-0 text-[13rem] leading-none text-green-800" aria-hidden="true"></i>
+        <p class="relative m-5 rounded-lg bg-white/90 px-4 py-2 text-sm font-semibold text-green-800">Карпати чекають</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES -->
+  <section id="advantages" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="adv-title">
+    <div class="mb-10 max-w-2xl">
+      <p class="eyebrow">Чому з нами</p>
+      <h2 id="adv-title" class="h2">Плануй похід упевнено</h2>
+      <p class="lead">Усе необхідне для комфортної та продуманої подорожі в одному місці.</p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-2xl border border-slate-200 p-6">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-xl text-green-700" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></div>
+        <h3 class="text-lg font-bold text-slate-900">Продумані маршрути</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Обирай напрямок відповідно до своїх цілей і рівня підготовки.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 p-6">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-xl text-green-700" aria-hidden="true"><i class="fa-solid fa-person-hiking"></i></div>
+        <h3 class="text-lg font-bold text-slate-900">Досвідчені гіди</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Мандруй із людьми, які знають маршрути та дбають про безпеку групи.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 p-6">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-xl text-green-700" aria-hidden="true"><i class="fa-solid fa-hryvnia-sign"></i></div>
+        <h3 class="text-lg font-bold text-slate-900">Зрозуміла вартість</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Плануй бюджет з урахуванням додаткових послуг і спорядження.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 p-6">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-xl text-green-700" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 class="text-lg font-bold text-slate-900">Турбота про безпеку</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Гід допоможе підготуватися до умов маршруту та подбає про групу в дорозі.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 p-6">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-xl text-green-700" aria-hidden="true"><i class="fa-regular fa-calendar-days"></i></div>
+        <h3 class="text-lg font-bold text-slate-900">Зручне планування</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Підбирай тривалість походу та дату відповідно до своїх планів.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 p-6">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-xl text-green-700" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <h3 class="text-lg font-bold text-slate-900">Підтримка мандрівників</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Отримай корисні поради щодо спорядження та підготовки до подорожі.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TOURS (з Tailwind Play) -->
+  <section id="tours" class="bg-slate-50" aria-labelledby="tours-title">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+        <div>
+          <p class="eyebrow">Обери напрямок</p>
+          <h2 id="tours-title" class="h2">Популярні маршрути</h2>
+          <p class="lead">Обери свою наступну пригоду в Карпатах.</p>
+        </div>
+        <a class="nav-link font-semibold text-green-700" href="#calculator">Підібрати за параметрами →</a>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="tour">
+          <img src="images/hoverla.jpg" alt="Вершина Говерли" class="h-52 w-full object-cover" loading="lazy">
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-xl font-bold text-slate-900">Сходження на Говерлу</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Відкрий найвищу вершину України з досвідченим гідом.</p>
+            <div class="mt-auto flex items-center justify-between gap-3 pt-5"><span class="font-bold text-green-800">1 500 ₴</span><a href="#calculator" class="btn !px-4 text-sm">Обрати тур</a></div>
+          </div>
+        </article>
+        <article class="tour">
+          <img src="images/petros.jpg" alt="Гірський маршрут на Петрос" class="h-52 w-full object-cover" loading="lazy">
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-xl font-bold text-slate-900">Підйом на Петрос</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Випробуй себе на мальовничому гірському маршруті.</p>
+            <div class="mt-auto flex items-center justify-between gap-3 pt-5"><span class="font-bold text-green-800">1 800 ₴</span><a href="#calculator" class="btn !px-4 text-sm">Обрати тур</a></div>
+          </div>
+        </article>
+        <article class="tour">
+          <img src="images/synevir.jpg" alt="Озеро Синевир серед лісів" class="h-52 w-full object-cover" loading="lazy">
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-xl font-bold text-slate-900">Мандрівка до Синевиру</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Насолодись природою одного з найвідоміших озер Карпат.</p>
+            <div class="mt-auto flex items-center justify-between gap-3 pt-5"><span class="font-bold text-green-800">1 200 ₴</span><a href="#calculator" class="btn !px-4 text-sm">Обрати тур</a></div>
+          </div>
+        </article>
+        <article class="tour">
+          <img src="images/bukovel.jpg" alt="Гірські схили Буковелю" class="h-52 w-full object-cover" loading="lazy">
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-xl font-bold text-slate-900">Карпатські панорами</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Легкий маршрут із краєвидами на гірські хребти.</p>
+            <div class="mt-auto flex items-center justify-between gap-3 pt-5"><span class="font-bold text-green-800">900 ₴</span><a href="#calculator" class="btn !px-4 text-sm">Обрати тур</a></div>
+          </div>
+        </article>
+        <article class="tour">
+          <img src="images/gorgany.jpg" alt="Кам'янисті схили Ґорґан" class="h-52 w-full object-cover" loading="lazy">
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-xl font-bold text-slate-900">Стежками Ґорґан</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Досліди дикі стежки, ліси та кам'янисті вершини.</p>
+            <div class="mt-auto flex items-center justify-between gap-3 pt-5"><span class="font-bold text-green-800">1 600 ₴</span><a href="#calculator" class="btn !px-4 text-sm">Обрати тур</a></div>
+          </div>
+        </article>
+        <article class="tour">
+          <img src="images/dzembronia.jpg" alt="Гірське село в Карпатах" class="h-52 w-full object-cover" loading="lazy">
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-xl font-bold text-slate-900">Відпочинок у горах</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Спокійна прогулянка, свіже повітря та автентичні краєвиди.</p>
+            <div class="mt-auto flex items-center justify-between gap-3 pt-5"><span class="font-bold text-green-800">1 000 ₴</span><a href="#calculator" class="btn !px-4 text-sm">Обрати тур</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section id="calculator" class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-5 lg:px-8" aria-labelledby="calc-title">
+    <div class="lg:col-span-2">
+      <p class="eyebrow">Плануй бюджет</p>
+      <h2 id="calc-title" class="h2">Розрахуй вартість походу</h2>
+      <p class="lead">Вкажи основні параметри — і підготуйся до своєї пригоди.</p>
+      <p class="mt-6 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-900">Навчальний макет: розрахунок ще не підключений.</p>
+    </div>
+    <form class="grid gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:grid-cols-2 lg:col-span-3" onsubmit="return false">
+      <div><label class="label" for="tour-date">Дата походу</label><input class="field" id="tour-date" type="date" name="tour-date"></div>
+      <div><label class="label" for="mountain">Гора або напрямок</label>
+        <select class="field" id="mountain" name="mountain"><option value="">Обери напрямок</option><option value="hoverla">Говерла</option><option value="pip-ivan">Піп Іван</option><option value="synevyr">Синевир</option></select></div>
+      <div><label class="label" for="difficulty">Складність</label>
+        <select class="field" id="difficulty" name="difficulty"><option value="">Будь-яка</option><option value="easy">Легка</option><option value="medium">Середня</option><option value="hard">Висока</option></select></div>
+      <div><label class="label" for="days">Кількість днів</label><input class="field" id="days" type="number" name="days" min="1" value="1"></div>
+      <div><label class="label" for="guide-count">Кількість гідів</label><input class="field" id="guide-count" type="number" name="guides" min="1" value="1"></div>
+      <div><label class="label" for="equipment">Прокат спорядження</label>
+        <select class="field" id="equipment" name="equipment"><option value="no">Не потрібен</option><option value="yes">Потрібен</option></select></div>
+      <div class="sm:col-span-2"><label class="label" for="transfer">Трансфер</label>
+        <select class="field" id="transfer" name="transfer"><option value="no">Не потрібен</option><option value="yes">Потрібен</option></select></div>
+      <button type="button" class="btn w-full sm:col-span-2">Підібрати тур</button>
+    </form>
+  </section>
+
+  <!-- GUIDES -->
+  <section id="guides" class="bg-slate-50" aria-labelledby="guides-title">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:px-8">
+      <div class="flex aspect-[4/3] flex-col items-center justify-center rounded-3xl bg-green-700 p-6 text-center text-white" aria-hidden="true">
+        <i class="fa-solid fa-person-hiking text-7xl"></i>
+        <p class="mt-4 font-display text-lg font-semibold">Знання маршруту. Досвід. Безпека.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Люди, яким можна довіряти</p>
+        <h2 id="guides-title" class="h2">Познайомся з нашими гідами</h2>
+        <p class="lead mb-6">Досвід, підготовка, безпека та маршрути, які вони знають напам'ять.</p>
+        <a class="btn" href="#contacts">Познайомитися з гідами</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="rev-title">
+    <div class="mb-10"><p class="eyebrow">Враження мандрівників</p><h2 id="rev-title" class="h2">Історії з наших стежок</h2></div>
+    <div class="grid gap-6 md:grid-cols-3">
+      <figure class="rounded-2xl border border-slate-200 p-6">
+        <span class="text-amber-500" role="img" aria-label="Оцінка: 5 із 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+        <blockquote class="mt-3 leading-7 text-slate-700">«Чудовий маршрут і дуже уважний гід. Похід був організований зрозуміло й спокійно».</blockquote>
+        <figcaption class="mt-4 text-sm font-semibold text-slate-900">Олена · перший похід</figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-slate-200 p-6">
+        <span class="text-amber-500" role="img" aria-label="Оцінка: 5 із 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+        <blockquote class="mt-3 leading-7 text-slate-700">«Зручно було заздалегідь зрозуміти складність і приблизну вартість подорожі».</blockquote>
+        <figcaption class="mt-4 text-sm font-semibold text-slate-900">Андрій · похід на вихідні</figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-slate-200 p-6">
+        <span class="text-amber-500" role="img" aria-label="Оцінка: 5 із 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+        <blockquote class="mt-3 leading-7 text-slate-700">«Неймовірні краєвиди та хороша команда. Хочу повернутися в гори знову».</blockquote>
+        <figcaption class="mt-4 text-sm font-semibold text-slate-900">Марія · груповий тур</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-green-700" aria-labelledby="cta-title">
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center lg:px-8">
+      <div>
+        <p class="mb-2 text-sm font-semibold text-green-100">Час вирушати</p>
+        <h2 id="cta-title" class="max-w-2xl font-display text-3xl font-bold text-white">Твоя наступна історія починається в Карпатах</h2>
+        <p class="mt-2 text-green-100">Обери маршрут і зроби перший крок до пригоди.</p>
+      </div>
+      <a href="#calculator" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-white px-6 py-3 font-semibold text-green-800 transition-colors hover:bg-green-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Підібрати тур</a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer id="contacts" class="bg-slate-900 text-slate-200">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="#" class="inline-block rounded-sm font-display text-xl font-bold text-white transition-colors hover:text-green-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-400">Зелені стежки Карпат</a>
+        <p class="mt-4 max-w-sm text-sm leading-6 text-slate-300">Відкривай Карпати разом із досвідченими гідами. Обирай маршрути, плануй мандрівки та насолоджуйся природою.</p>
+      </div>
+      <nav aria-label="Навігація внизу сторінки">
+        <h2 class="mb-4 text-base font-semibold text-white">Навігація</h2>
+        <ul class="space-y-3 text-sm">
+          <li><a class="link-foot" href="#tours">Тури</a></li>
+          <li><a class="link-foot" href="#advantages">Переваги</a></li>
+          <li><a class="link-foot" href="#guides">Наші гіди</a></li>
+          <li><a class="link-foot" href="#reviews">Відгуки</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Послуги">
+        <h2 class="mb-4 text-base font-semibold text-white">Послуги</h2>
+        <ul class="space-y-3 text-sm">
+          <li><a class="link-foot" href="#calculator">Калькулятор вартості</a></li>
+          <li><a class="link-foot" href="#calculator">Прокат спорядження</a></li>
+          <li><a class="link-foot" href="#calculator">Трансфер</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="mb-4 text-base font-semibold text-white">Контакти</h2>
+        <ul class="space-y-3 text-sm">
+          <li><a class="link-foot inline-flex items-center gap-2" href="mailto:info@example.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i>info@example.com</a></li>
+          <li><a class="link-foot inline-flex items-center gap-2" href="tel:+380000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i>+380 00 000 00 00</a></li>
+        </ul>
+        <h3 class="mb-3 mt-6 text-sm font-semibold text-white">Ми в соцмережах</h3>
+        <div class="flex gap-3">
+          <a href="https://www.instagram.com/" aria-label="Instagram" class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-slate-800 text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-slate-800 text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://t.me/" aria-label="Telegram" class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-slate-800 text-white transition-colors hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-slate-700 pt-6 text-center text-sm text-slate-400">
+      <p>&copy; 2026 Зелені стежки Карпат. Навчальний прототип.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-navigation');
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden') === false;
+    menu.classList.toggle('flex', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Закрити меню' : 'Відкрити меню');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.add('hidden'); menu.classList.remove('flex'); btn.setAttribute('aria-expanded', 'false'); }));
+</script>
+</body>
+</html>

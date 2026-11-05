@@ -1,0 +1,50 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navigation = document.getElementById('mobile-navigation');
+
+  if (!menuToggle || !navigation) return;
+
+  const toggleMenu = (show) => {
+    const isOpen = show !== undefined ? show : !navigation.classList.contains('navigation--open');
+    
+    navigation.classList.toggle('navigation--open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+    document.body.classList.toggle('no-scroll', isOpen); // Блокує скрол сторінки при відкритому меню
+  };
+
+  // Перемикання за кнопкою
+  menuToggle.addEventListener('click', () => toggleMenu());
+
+  // Закриття при кліку на будь-яке посилання всередині меню
+  navigation.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      toggleMenu(false);
+    }
+  });
+
+  // Закриття клавішею Escape
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navigation.classList.contains('navigation--open')) {
+      toggleMenu(false);
+    }
+  });
+
+  // Закриття при кліку за межами меню
+  document.addEventListener('click', (event) => {
+    const isClickInside = navigation.contains(event.target) || menuToggle.contains(event.target);
+    if (!isClickInside && navigation.classList.contains('navigation--open')) {
+      toggleMenu(false);
+    }
+  });
+});
+
+
+// Автоматично закривати меню під час прокручування
+window.addEventListener("scroll", () => {
+  const navigation = document.querySelector(".navigation");
+
+  if (navigation && navigation.classList.contains("navigation--open")) {
+    navigation.classList.remove("navigation--open");
+  }
+});

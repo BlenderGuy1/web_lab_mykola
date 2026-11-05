@@ -1,0 +1,1214 @@
+:root {
+  /* Кольори */
+  --green: #15803D;
+  --green-dark: #166534;
+  --pale: #F1F5F9;
+  --surface: #FFFFFF;
+  --text: #0F172A;
+  --muted: #475569;
+  --border: #DCE5E8;
+  --accent: #D97706;
+
+  /* Компоненти */
+  --radius: 14px;
+  --shadow: 0 4px 18px rgba(15, 23, 42, .06);
+  --container: 1160px;
+
+  /* Шрифти */
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Raleway', sans-serif;
+
+  /* Товщина шрифтів */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Іконки */
+  --icon-size: 1.25rem;
+  --icon-color: #15803D;
+}
+
+/* Базові налаштування */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--surface);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Заголовки */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+
+h1 {
+  max-width: 650px;
+  margin-bottom: 22px;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* Контейнер */
+
+.container {
+  width: calc(100% - 48px);
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+/* Шапка сайту */
+
+.header {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, .06);
+}
+
+.header__inner {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.header__cta {
+  flex-shrink: 0;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  color: #1F2937;
+  background: transparent;
+  cursor: pointer;
+  transition: background .16s ease;
+}
+
+.menu-toggle:hover {
+  background: #F1F5F9;
+}
+
+.menu-toggle__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.logo__mark {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 11px;
+  color: #fff;
+  background: var(--green);
+  font-size: 1.25rem;
+}
+
+.navigation {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: var(--muted);
+  font-size: .94rem;
+}
+
+.navigation__link:hover,
+.text-link:hover,
+.footer__link:hover {
+  color: var(--green);
+}
+
+/* Кнопки */
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  color: #fff;
+  background: var(--green);
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: background .16s ease, transform .16s ease;
+}
+
+.button:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.button--small {
+  min-height: 44px;
+  padding: 9px 16px;
+  font-size: .9rem;
+}
+
+.button--secondary {
+  color: var(--green);
+  background: transparent;
+}
+
+.button--secondary:hover {
+  color: #fff;
+}
+
+.button--full {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.button--light {
+  flex-shrink: 0;
+  border-color: #fff;
+  color: var(--green);
+  background: #fff;
+}
+
+.button--light:hover {
+  color: var(--green-dark);
+  background: var(--pale);
+}
+
+/* Головний екран */
+
+.hero {
+  overflow: hidden;
+  padding: 76px 0 84px;
+  background: linear-gradient(120deg, var(--pale), #fff 75%);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  max-width: 650px;
+  margin-bottom: 22px;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  color: var(--green);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.eyebrow--light {
+  color: #D1FAE5;
+}
+
+.hero__description {
+  max-width: 580px;
+  margin-bottom: 28px;
+  font-size: 1.1rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__note {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+/* Ілюстрація гір на головному екрані */
+.hero__visual {
+  position: relative;
+  min-height: 370px;
+  overflow: hidden;
+  border: 1px solid #E0EAE4;
+  border-radius: 22px;
+  background: #49098a;
+}
+
+/* Окремий клас для картинки — розтягує її на весь блок */
+.hero__visual-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Окремий клас для плашки — прямокутник з закругленими кутами */
+.hero__visual-label {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px; /* Прямокутна форма плашки */
+  color: var(--text);
+  background: rgba(253, 252, 252, 0.88);
+  font-size: 0.9rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+
+
+
+
+
+
+
+
+
+/* Секції */
+
+.section {
+  padding: 88px 0;
+}
+
+.section--muted {
+  background: var(--pale);
+}
+
+.section__heading {
+  max-width: 680px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.section__title {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.section__description {
+  margin-bottom: 0;
+}
+
+.section__heading--split {
+  display: flex;
+  max-width: none;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
+}
+
+.section__title--split {
+  margin-bottom: 12px;
+}
+
+/* Переваги */
+
+.advantages__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Сітки карток */
+
+.card-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.card-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card,
+.tour-card,
+.quote-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.info-card {
+  padding: 28px;
+}
+
+.info-card__description,
+.tour-card__description,
+.quote-card__text {
+  margin-bottom: 0;
+}
+
+/* Іконки карток */
+
+.info-card__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--icon-color);
+  background: #DCFCE7;
+  font-size: 1.8rem;
+}
+
+/* Загальні стилі іконок */
+
+.icon {
+  font-size: var(--icon-size);
+  color: var(--icon-color);
+}
+
+/* Картки турів */
+
+.tour-card__image {
+  position: relative;
+  height: 208px;
+  background-color: #DCE9DF;
+  background-position: center;
+  background-size: cover;
+  background-image:
+    linear-gradient(
+      145deg,
+      transparent 45%,
+      rgba(21, 128, 61, .55) 46% 64%,
+      transparent 65%
+    ),
+    linear-gradient(
+      35deg,
+      #B9D3BF 0 35%,
+      #E8F0E9 36% 54%,
+      #8DB99A 55% 72%,
+      #DCE9DF 73%
+    );
+}
+
+.tour-card__image--four {
+  background-image: 
+    linear-gradient(145deg, transparent 43%, rgba(21, 128, 61, .58) 44% 65%, transparent 66%),
+    linear-gradient(30deg, #B9D3BF 0 30%, #E8F0E9 31% 52%, #7FAE8B 53% 73%, #DCE9DF 74%);
+}
+
+.tour-card__image--five {
+  background-image:
+    linear-gradient(140deg, transparent 38%, rgba(22, 101, 52, .72) 39% 68%, transparent 69%),
+    linear-gradient(35deg, #6FA17C 0 35%, #DCE9DF 36% 53%, #A6C7AD 54% 75%, #E8F0E9 76%);
+}
+
+.tour-card__image--six {
+  background-image:
+    linear-gradient(150deg, transparent 43%, rgba(21, 128, 61, .5) 44% 65%, transparent 66%),
+    linear-gradient(25deg, #8DB99A 0 35%, #DCE9DF 36% 53%, #B9D3BF 54% 75%, #E8F0E9 76%);
+}
+
+.tour-card__image--two {
+  background-image:
+    linear-gradient(
+      150deg,
+      transparent 43%,
+      rgba(21, 128, 61, .6) 44% 65%,
+      transparent 66%
+    ),
+    linear-gradient(
+      25deg,
+      #8DB99A 0 35%,
+      #DCE9DF 36% 53%,
+      #B9D3BF 54% 75%,
+      #E8F0E9 76%
+    );
+}
+
+.tour-card__image--three {
+  background-image:
+    linear-gradient(
+      140deg,
+      transparent 38%,
+      rgba(22, 101, 52, .72) 39% 68%,
+      transparent 69%
+    ),
+    linear-gradient(
+      35deg,
+      #6FA17C 0 35%,
+      #DCE9DF 36% 53%,
+      #A6C7AD 54% 75%,
+      #E8F0E9 76%
+    );
+}
+
+.tour-card__tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--green-dark);
+  background: #fff;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.tour-card__body {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.tour-card__meta {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.tour-card__title {
+  min-height: 0;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.tour-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.tour-card__price {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+.tour-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.tour-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .12);
+}
+
+.text-link {
+  color: var(--green);
+  font-weight: 700;
+}
+
+
+/* Калькулятор вартості туру */
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  align-items: start;
+  gap: 64px;
+}
+
+.calculator-copy {
+  padding-top: 22px;
+}
+
+.calculator-copy__title {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.calculator-copy__description {
+  margin-bottom: 0;
+}
+
+.calculator-note {
+  margin-top: 28px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: var(--muted);
+  background: #FFF7ED;
+  font-size: .9rem;
+}
+
+.calculator-card {
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+/* Поля форми */
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.form-field__label {
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.form-field__control {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  color: var(--text);
+  background: #fff;
+}
+
+.form-field__control:focus {
+  border-color: var(--green);
+}
+
+/* Блок гідів */
+
+.guides-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.guides-visual {
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #DCE9DF, #B7D2BE);
+}
+
+.guides-visual__avatar {
+  display: grid;
+  width: 130px;
+  height: 130px;
+  place-items: center;
+  border: 8px solid rgba(255, 255, 255, .65);
+  border-radius: 50%;
+  color: #fff;
+  background: var(--green);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.guides-visual__caption {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.guides-copy__title {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.guides-copy__description {
+  margin-bottom: 26px;
+}
+
+/* Відгуки */
+
+.quote-card {
+  padding: 26px;
+}
+
+.quote-card__stars {
+  margin-bottom: 16px;
+  color: var(--accent);
+  letter-spacing: .12em;
+}
+
+.quote-card__author {
+  margin-top: 20px;
+  color: var(--text);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+/* Заклик до дії */
+
+.cta-section {
+  padding: 64px 0;
+  color: #fff;
+  background: var(--green);
+}
+
+.cta-section__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+}
+
+.cta-section__title {
+  max-width: 700px;
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.cta-section__description {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, .82);
+}
+
+/* Футер */
+
+.footer {
+  padding: 56px 0 20px;
+  color: #E2E8F0;
+  background: #0F172A;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 42px;
+}
+
+.logo--footer {
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.logo--footer:hover {
+  color: #4ADE80;
+}
+
+.logo--footer .logo__mark {
+  color: #fff;
+  background: #166534;
+}
+
+.footer__description {
+  max-width: 320px;
+  margin-bottom: 0;
+  color: #CBD5E1;
+  font-size: .92rem;
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer__column-title {
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.footer__link {
+  color: #CBD5E1;
+  font-size: .92rem;
+}
+
+.footer__link:hover {
+  color: #4ADE80;
+}
+
+.footer__social-title {
+  margin: 12px 0 0;
+  color: #fff;
+  font-size: .9rem;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #fff;
+  background: #1E293B;
+  transition: background .16s ease;
+}
+
+.footer__social-link:hover {
+  background: var(--green-dark);
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #334155;
+  color: #94A3B8;
+  font-size: .85rem;
+}
+
+/* Планшети та невеликі ноутбуки */
+@media (max-width: 960px) {
+  /* Зменшуємо внутрішні відступи секцій, щоб прибрати велетенські білі прогалини */
+  section,
+  .hero,
+  .section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .navigation {
+    gap: 14px;
+    font-size: .86rem;
+  }
+
+  .header__inner {
+    gap: 18px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 20px; /* Зменшили gap з 24px/28px для компактності */
+  }
+
+  .hero__visual {
+    min-height: 280px; /* Трохи компактніша висота на планшеті */
+    width: 100%;
+  }
+
+  .card-grid--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .advantages__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .calculator-layout,
+  .guides-layout {
+    gap: 24px; /* Зменшили gap з 36px для кращої щільності */
+  }
+}
+
+/* Телефони */
+
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 32px);
+    max-width: var(--container);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header__inner {
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .navigation {
+    display: none;
+    width: 100%;
+    flex: 0 0 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 0 4px;
+  }
+
+  .navigation.navigation--open {
+    display: flex;
+  }
+
+  .navigation__link {
+    padding: 10px 4px;
+  }
+
+  .header__cta {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .hero {
+    padding: 54px 0 60px;
+  }
+
+  .hero__inner,
+  .calculator-layout,
+  .guides-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    min-height: 270px;
+  }
+
+  .section {
+    padding: 62px 0;
+  }
+
+  .section__heading--split,
+  .cta-section__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .card-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .advantages__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tour-card__title {
+    min-height: 0;
+  }
+
+  .calculator-card {
+    padding: 22px;
+  }
+
+  .guides-visual {
+    min-height: 250px;
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* Дуже маленькі телефони */
+
+@media (max-width: 420px) {
+  .form-row,
+  .footer__top {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero__button {
+    width: 100%;
+  }
+
+  .footer__brand {
+    grid-column: auto;
+  }
+
+  .footer__contacts {
+    grid-column: 1 / -1;
+  }
+}
+
+
+
+
+
+/* ==========================================
+   Мобільна навігація (Випадаюче меню)
+   ========================================== */
+
+/* 1. Забезпечуємо правильне позиціонування шапки *//* Мобільна навігація */
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    z-index: 100;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 16px;
+
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s ease;
+  }
+
+  .navigation.navigation--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .navigation__link {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FIX: відступи контенту на мобільних екранах */
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 32px) !important;
+    max-width: 1160px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  .section > .container,
+  .hero > .container,
+  .cta-section > .container,
+  .footer > .container {
+    width: calc(100% - 32px) !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Бокові відступи сторінки */
+.container {
+  width: calc(100% - 48px);
+  max-width: 1160px;
+  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Планшети */
+@media (max-width: 960px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+}
+
+/* Телефони */
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo__img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+
+.logo--footer .logo__img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 11px;
+}
