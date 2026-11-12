@@ -3,347 +3,361 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Обирай маршрути, гідів і походи Карпатами разом із Зеленими стежками Карпат.">
-  <title>Зелені стежки Карпат — походи та тури</title>
+  <meta name="description" content="Carpatianstour — обирай маршрути Карпатами, знаходь досвідчених гідів і плануй свою наступну гірську пригоду.">
+  <meta name="theme-color" content="#020617">
+  <title>Carpatianstour — відкрий Карпати своїм маршрутом</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-  <!-- Tailwind: preflight і container вимкнено, щоб він не перебивав стилі з style.css -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config = { corePlugins: { preflight: false, container: false } };</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="js.script" defer></script>
 </head>
 
 <body>
-  <div class="page">
-    <header class="header">
-      <div class="container header__inner">
 
-
-
-       <a class="logo" href="#top" aria-label="Зелені стежки Карпат — на головну">
-  <img class="logo__img" src="assets/logo_1.png" alt="Logo">
-  Зелені стежки Карпат
+  <!-- Header -->
+  <header class="header header--js">
+    <div class="container header__inner">
+      <a href="#top" class="logo">
+        <span class="logo__mark" aria-hidden="true">↗</span>
+        CarpatiansTour
       </a>
+      <nav class="nav" aria-label="Головна навігація">
+        <a href="#tours">Тури</a>
+        <a href="#media">Відео</a>
+        <a href="#about">Про нас</a>
+        <a href="#location">Контакти</a>
+        <a href="#reviews">Відгуки</a>
+      </nav>
+      <a href="#booking" class="btn header__cta">Забронювати тур</a>
+      <button class="burger" type="button" aria-label="Відкрити меню" aria-expanded="false">
+        <span class="burger__icon"></span>
+      </button>
+    </div>
+    
+    <!-- Мобільне меню -->
+    <nav class="nav-mobile" aria-label="Мобільна навігація">
+      <a href="#tours">Тури</a>
+      <a href="#media">Відео</a>
+      <a href="#about">Про нас</a>
+      <a href="#location">Контакти</a>
+      <a href="#reviews">Відгуки</a>
+      <!-- Кнопка бронювання для дуже вузьких екранів -->
+      <a href="#booking" class="btn btn--block nav-mobile__cta">Забронювати тур</a>
+    </nav>
+  </header>
 
+  <main id="top">
 
-
-
-
-        <nav class="navigation" id="mobile-navigation" aria-label="Головна навігація">
-          <a class="navigation__link" href="#tours">Тури</a>
-          <a class="navigation__link" href="#guides">Гіди</a>
-          <a class="navigation__link" href="#calculator">Ціни</a>
-          <a class="navigation__link" href="#advantages">Про нас</a>
-          <a class="button button--small header__cta" href="#calculator">Обрати тур</a>
-        </nav>
-        <button class="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-navigation">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="menu-toggle__icon" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg"></div>
+      <div class="hero__glow"></div>
+      <div class="container hero__inner">
+        <div>
+          <span class="badge"><span class="badge__dot" aria-hidden="true"></span>Твоя пригода починається тут</span>
+          <h1 id="hero-title" class="hero__title">Відкрий Карпати своїм маршрутом</h1>
+          <p class="hero__text">Обирай вершину, складність і дату походу. Знаходь маршрут та досвідченого гіда для своєї наступної гірської пригоди.</p>
+          <div class="hero__actions">
+            <a href="#tours" class="btn btn--lg">Обрати тур</a>
+            <a href="#media" class="btn btn--lg btn--outline">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .78.85 1.26 1.52.85l11-6.86a1 1 0 0 0 0-1.7l-11-6.86A1 1 0 0 0 8 5.14Z"/></svg>
+              Дивитися відео
+            </a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <img src="assets/hero_bg.png" alt="Гірський краєвид Карпат із туристкою, яка планує маршрут на телефоні" class="hero__img">
+          <div class="hero__caption">
+            <p class="hero__caption-title">Карпати чекають</p>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main class="page__main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="container hero__inner">
-          <div class="hero__content">
-            <div class="eyebrow">Твоя пригода починається тут</div>
-            
-
-          <!----  TAiLWIND-->
-            <h1 class="hero__title text-slate-900" id="hero-title">Відкрий Карпати своїм маршрутом</h1>
-            <p class="hero__description">Обирай гору, складність і дату походу. Ми допоможемо знайти маршрут та досвідченого гіда для твоєї наступної пригоди.</p>
-            <div class="hero__actions">
-              <a class="button hero__button" href="#tours">Знайти свій тур</a>
-              <a class="button button--secondary hero__button" href="#advantages">Як це працює</a>
+    <!-- Tours -->
+    <section id="tours" class="section" aria-labelledby="tours-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Обери напрямок</p>
+          <h2 id="tours-title" class="section__title">Популярні маршрути Карпат</h2>
+          <p class="section__lead">Від першого знайомства з горами до підкорення високих вершин.</p>
+        </div>
+        <div class="grid grid--tours">
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/carpatians_haliavuna.jpg" alt="Гірський пейзаж на маршруті сходження на Говерлу" loading="lazy" class="card__img">
+              <span class="tag">Популярний маршрут</span>
             </div>
-            <div class="hero__note">Маршрути для початківців і досвідчених мандрівників</div>
-          </div>
-          <div class="hero__visual" role="img" aria-label="Туристка з телефоном на тлі карпатських гір">
-            <img class="hero__visual-img" src="assets/hero_bg.png" alt="">
-            <div class="hero__visual-label">Карпати чекають</div>
+            <div class="card__body">
+              <h3 class="card__title">Сходження на Говерлу</h3>
+              <p class="card__text">Відкрий найвищу вершину України з досвідченим гідом.</p>
+              <div class="card__footer"><span class="price">1 500 ₴</span><a href="#booking" class="btn btn--sm">Обрати тур</a></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/carpatu_path.jpg" alt="Гірська стежка на маршруті до вершини Петрос" loading="lazy" class="card__img">
+              <span class="tag tag--amber">Для досвідчених</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Підйом на Петрос</h3>
+              <p class="card__text">Випробуй себе на мальовничому гірському маршруті.</p>
+              <div class="card__footer"><span class="price">1 800 ₴</span><a href="#booking" class="btn btn--sm">Обрати тур</a></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/synevur.jpg" alt="Озеро Синевир серед карпатських лісів" loading="lazy" class="card__img">
+              <span class="tag">Для відпочинку</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Мандрівка до Синевиру</h3>
+              <p class="card__text">Насолодись природою одного з найвідоміших озер Карпат.</p>
+              <div class="card__footer"><span class="price">1 200 ₴</span><a href="#booking" class="btn btn--sm">Обрати тур</a></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/doluna.jpg" alt="Панорамний краєвид на карпатські гірські хребти" loading="lazy" class="card__img">
+            <div class="card__body">
+              <h3 class="card__title">Карпатські панорами</h3>
+              <p class="card__text">Легкий маршрут із краєвидами на гірські хребти.</p>
+              <div class="card__footer"><span class="price">900 ₴</span><a href="#booking" class="btn btn--sm">Обрати тур</a></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/path_carpatians.jpg" alt="Кам'яниста стежка серед гірського лісу в Ґорґанах" loading="lazy" class="card__img">
+            <div class="card__body">
+              <h3 class="card__title">Стежками Ґорґан</h3>
+              <p class="card__text">Досліди дикі стежки, ліси та кам'янисті вершини.</p>
+              <div class="card__footer"><span class="price">1 600 ₴</span><a href="#booking" class="btn btn--sm">Обрати тур</a></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/house_carpatians.jpg" alt="Затишний будинок серед карпатських гір" loading="lazy" class="card__img">
+            <div class="card__body">
+              <h3 class="card__title">Відпочинок у горах</h3>
+              <p class="card__text">Спокійна прогулянка, свіже повітря та автентичні краєвиди.</p>
+              <div class="card__footer"><span class="price">1 000 ₴</span><a href="#booking" class="btn btn--sm">Обрати тур</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video -->
+    <section id="media" class="section section--alt" aria-labelledby="media-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Відчуй атмосферу</p>
+          <h2 id="media-title" class="section__title">Відеотур Карпатами</h2>
+          <p class="section__lead">Побач красу гірських пейзажів і надихнися на власну мандрівку.</p>
+        </div>
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/NcV_Dyvbcbg"
+            title="Відеотур Карпатами - Carpatianstour"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container about">
+        <div>
+          <p class="eyebrow">Люди, яким можна довіряти</p>
+          <h2 id="about-title" class="section__title">Плануй похід упевнено</h2>
+          <p class="about__text">Ми допомагаємо обрати напрямок відповідно до твоїх цілей і рівня підготовки. Мандруй із гідами, які знають маршрути та дбають про безпеку групи.</p>
+          <ul class="features">
+            <li class="feature">
+              <span class="feature__icon" aria-hidden="true">✓</span>
+              <div><h3 class="feature__title">Продумані маршрути</h3><p class="feature__text">Обирай напрямок відповідно до своїх цілей і рівня підготовки.</p></div>
+            </li>
+            <li class="feature">
+              <span class="feature__icon" aria-hidden="true">✓</span>
+              <div><h3 class="feature__title">Досвідчені гіди</h3><p class="feature__text">Мандруй із людьми, які знають маршрути та дбають про безпеку групи.</p></div>
+            </li>
+            <li class="feature">
+              <span class="feature__icon" aria-hidden="true">✓</span>
+              <div><h3 class="feature__title">Зрозуміла вартість</h3><p class="feature__text">Плануй бюджет з урахуванням додаткових послуг і спорядження.</p></div>
+            </li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="panel__grid">
+            <div class="tile"><span class="tile__icon" aria-hidden="true">⌖</span><h3 class="tile__title">Маршрути</h3><p class="tile__text">Від легких прогулянок до сходжень на вершини.</p></div>
+            <div class="tile"><span class="tile__icon" aria-hidden="true">♧</span><h3 class="tile__title">Природа</h3><p class="tile__text">Ліси, озера та панорами Карпат.</p></div>
+            <div class="tile"><span class="tile__icon" aria-hidden="true">♙</span><h3 class="tile__title">Гіди</h3><p class="tile__text">Підтримка та поради під час планування.</p></div>
+            <div class="tile"><span class="tile__icon" aria-hidden="true">◇</span><h3 class="tile__title">Підготовка</h3><p class="tile__text">Поради щодо спорядження та умов маршруту.</p></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section advantages" id="advantages" aria-labelledby="advantages-title">
-        <div class="container">
-          <div class="section__heading">
-            <div class="eyebrow">Чому з нами</div>
-            <h2 class="section__title" id="advantages-title">Плануй похід упевнено</h2>
-            <p class="section__description">Усе необхідне для комфортної та продуманої подорожі в одному місці.</p>
+    <!-- Metrics -->
+    <section class="section--alt" aria-label="Можливості Carpatianstour">
+      <div class="container metrics">
+        <div><p class="metric__value">Різні рівні</p><p class="metric__label">Маршрути для різної підготовки</p></div>
+        <div><p class="metric__value">Досвідчені</p><p class="metric__label">Гіди для гірських мандрівок</p></div>
+        <div><p class="metric__value">Твій вибір</p><p class="metric__label">Планування маршруту під себе</p></div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="section" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Враження мандрівників</p>
+          <h2 id="reviews-title" class="section__title">Історії з наших стежок</h2>
+        </div>
+        <div class="grid grid--reviews">
+          <article class="review">
+            <div class="review__stars" role="img" aria-label="Оцінка: 5 із 5">★★★★★</div>
+            <blockquote class="review__quote">«Чудовий маршрут і дуже уважний гід. Похід був організований зрозуміло й спокійно».</blockquote>
+            <p class="review__name">Олена</p>
+            <p class="review__meta">Перший похід</p>
+          </article>
+          <article class="review">
+            <div class="review__stars" role="img" aria-label="Оцінка: 5 із 5">★★★★★</div>
+            <blockquote class="review__quote">«Зручно було заздалегідь зрозуміти складність і приблизну вартість подорожі».</blockquote>
+            <p class="review__name">Андрій</p>
+            <p class="review__meta">Похід на вихідні</p>
+          </article>
+          <article class="review">
+            <div class="review__stars" role="img" aria-label="Оцінка: 5 із 5">★★★★★</div>
+            <blockquote class="review__quote">«Неймовірні краєвиди та хороша команда. Хочу повернутися в гори знову».</blockquote>
+            <p class="review__name">Марія</p>
+            <p class="review__meta">Груповий тур</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location and contacts -->
+    <section id="location" class="section section--alt" aria-labelledby="location-title">
+      <div class="container">
+        <div class="section__head section__head--left">
+          <p class="eyebrow">Зв'яжися з нами</p>
+          <h2 id="location-title" class="section__title">Плануй свою мандрівку</h2>
+          <p class="section__lead">Маєш запитання щодо маршруту чи підготовки? Зв'яжися з нами.</p>
+        </div>
+        <div class="split">
+          <div class="stack">
+            <div class="box">
+              <h3 class="box__title">Контактна інформація</h3>
+              <div class="contacts">
+                <div><p class="contact__label">Електронна пошта</p><a href="mailto:info@example.com" class="contact__link">info@example.com</a></div>
+                <div><p class="contact__label">Телефон</p><a href="tel:+380000000000" class="contact__link">+380 00 000 00 00</a></div>
+                <div><p class="contact__label">Регіон</p><p class="contact__value">Українські Карпати</p></div>
+              </div>
+            </div>
+            <div class="box box--accent">
+              <h3 class="box__title box__title--sm">Потрібна допомога з вибором?</h3>
+              <p class="box__text">Розкажи, яку вершину хочеш підкорити, а ми допоможемо зорієнтуватися з маршрутом.</p>
+              <a href="#booking" class="btn">Залишити заявку</a>
+            </div>
           </div>
-          <div class="advantages__grid">
-            <article class="info-card">
-              <div class="info-card__icon" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></div>
-              <h3 class="info-card__title">Продумані маршрути</h3>
-              <p class="info-card__description">Обирай напрямок відповідно до своїх цілей і рівня підготовки.</p>
-            </article>
-            <article class="info-card">
-              <div class="info-card__icon" aria-hidden="true"><i class="fa-solid fa-person-hiking"></i></div>
-              <h3 class="info-card__title">Досвідчені гіди</h3>
-              <p class="info-card__description">Мандруй із людьми, які знають маршрути та дбають про безпеку групи.</p>
-            </article>
-            <article class="info-card">
-              <div class="info-card__icon" aria-hidden="true"><i class="fa-solid fa-hryvnia-sign"></i></div>
-              <h3 class="info-card__title">Зрозуміла вартість</h3>
-              <p class="info-card__description">Плануй бюджет з урахуванням додаткових послуг і спорядження.</p>
-            </article>
-            <article class="info-card">
-              <div class="info-card__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
-              <h3 class="info-card__title">Турбота про безпеку</h3>
-              <p class="info-card__description">Гід допоможе підготуватися до умов маршруту та подбає про групу в дорозі.</p>
-            </article>
-            <article class="info-card">
-              <div class="info-card__icon" aria-hidden="true"><i class="fa-regular fa-calendar-days"></i></div>
-              <h3 class="info-card__title">Зручне планування</h3>
-              <p class="info-card__description">Підбирай тривалість походу та дату відповідно до своїх планів.</p>
-            </article>
-            <article class="info-card">
-              <div class="info-card__icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></div>
-              <h3 class="info-card__title">Підтримка мандрівників</h3>
-              <p class="info-card__description">Отримай корисні поради щодо спорядження та підготовки до подорожі.</p>
-            </article>
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.3444648719875!2d24.01217597687023!3d49.83598713140502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add79717db4e7%3A0x63ce912aa44b7440!2z0JPQvtC70L7QstC90LjQuSDQutC-0YDQv9GD0YEg0J3QpSAi0JvRjNCy0ZbQstGB0YzQutCwINC_0L7Qu9GW0YLQtdGF0L3RltC60LAi!5e0!3m2!1suk!2sua!4v1700000000000!5m2!1suk!2sua"
+              title="Інтерактивна карта — Головний корпус НУ Львівська політехніка"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section section--muted" id="tours" aria-labelledby="tours-title">
-        <div class="container">
-          <div class="section__heading section__heading--split">
+    <!-- Booking lead capture -->
+    <section id="booking" class="section" aria-labelledby="booking-title">
+      <div class="cta">
+        <div class="cta__card">
+          <div class="cta__head">
+            <p class="eyebrow">Час вирушати</p>
+            <h2 id="booking-title" class="section__title">Твоя наступна історія починається в Карпатах</h2>
+            <p class="cta__lead">Залиш контактні дані, щоб обговорити маршрут і спланувати свою пригоду.</p>
+          </div>
+          <form action="mailto:info@example.com" method="post" enctype="text/plain" class="form">
+            <div class="form__full">
+              <label for="booking-name" class="field__label">Твоє ім'я</label>
+              <input id="booking-name" name="name" type="text" autocomplete="name" required placeholder="Як до тебе звертатися?" class="field__control">
+            </div>
             <div>
-              <div class="eyebrow">Обери напрямок</div>
-              <h2 class="section__title section__title--split" id="tours-title">Популярні маршрути</h2>
-              <p class="section__description">Обери свою наступну пригоду в Карпатах.</p>
+              <label for="booking-email" class="field__label">Електронна пошта</label>
+              <input id="booking-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com" class="field__control">
             </div>
-            <a class="text-link" href="#calculator">Підібрати за параметрами →</a>
-          </div>
-          <div class="card-grid card-grid--three">
-            <article class="tour-card">
-              <img class="tour-card__image" src="assets/carpatians_haliavuna.jpg" alt="Вершина Говерли" loading="lazy">
-              <div class="tour-card__body">
-                <h3 class="tour-card__title">Сходження на Говерлу</h3>
-                <p class="tour-card__description">Відкрий найвищу вершину України з досвідченим гідом.</p>
-                <div class="tour-card__bottom"><span class="tour-card__price">1 500 ₴</span><a class="button button--small" href="#calculator">Обрати тур</a></div>
-              </div>
-            </article>
-            <article class="tour-card">
-              <img class="tour-card__image" src="assets/carpatu_path.jpg" alt="Підйом на Петрос" loading="lazy">
-              <div class="tour-card__body">
-                <h3 class="tour-card__title">Підйом на Петрос</h3>
-                <p class="tour-card__description">Випробуй себе на мальовничому гірському маршруті.</p>
-                <div class="tour-card__bottom"><span class="tour-card__price">1 800 ₴</span><a class="button button--small" href="#calculator">Обрати тур</a></div>
-              </div>
-            </article>
-            <article class="tour-card">
-              <img class="tour-card__image" src="assets/synevur.jpg" alt="Мандрівка до Синевиру" loading="lazy">
-              <div class="tour-card__body">
-                <h3 class="tour-card__title">Мандрівка до Синевиру</h3>
-                <p class="tour-card__description">Насолодись природою одного з найвідоміших озер Карпат.</p>
-                <div class="tour-card__bottom"><span class="tour-card__price">1 200 ₴</span><a class="button button--small" href="#calculator">Обрати тур</a></div>
-              </div>
-            </article>
-            <article class="tour-card">
-              <img class="tour-card__image" src="assets/doluna.jpg" alt="Карпатські панорами" loading="lazy">
-              <div class="tour-card__body">
-                <h3 class="tour-card__title">Карпатські панорами</h3>
-                <p class="tour-card__description">Легкий маршрут із краєвидами на гірські хребти.</p>
-                <div class="tour-card__bottom"><span class="tour-card__price">900 ₴</span><a class="button button--small" href="#calculator">Обрати тур</a></div>
-              </div>
-            </article>
-            <article class="tour-card">
-              <img class="tour-card__image" src="assets/path_carpatians.jpg" alt="Стежками Ґорґан" loading="lazy">
-              <div class="tour-card__body">
-                <h3 class="tour-card__title">Стежками Ґорґан</h3>
-                <p class="tour-card__description">Досліди дикі стежки, ліси та кам'янисті вершини.</p>
-                <div class="tour-card__bottom"><span class="tour-card__price">1 600 ₴</span><a class="button button--small" href="#calculator">Обрати тур</a></div>
-              </div>
-            </article>
-            <article class="tour-card">
-              <img class="tour-card__image" src="assets/house_carpatians.jpg" alt="Відпочинок у горах" loading="lazy">
-              <div class="tour-card__body">
-                <h3 class="tour-card__title">Відпочинок у горах</h3>
-                <p class="tour-card__description">Спокійна прогулянка, свіже повітря та автентичні краєвиди.</p>
-                <div class="tour-card__bottom"><span class="tour-card__price">1 000 ₴</span><a class="button button--small" href="#calculator">Обрати тур</a></div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="calculator" aria-labelledby="calculator-title">
-        <div class="container calculator-layout">
-          <div class="calculator-copy">
-            <div class="eyebrow">Плануй бюджет</div>
-            <h2 id="calculator-title">Розрахуй вартість походу</h2>
-            <p class="calculator-copy__description">Вкажи основні параметри — і підготуйся до своєї пригоди.</p>
-            <div class="calculator-note">Навчальний макет: розрахунок ще не підключений.</div>
-          </div>
-          <div class="calculator-card">
-            <div class="form-row">
-              <div class="form-field">
-                <label class="form-field__label" for="tour-date">Дата походу</label>
-                <input class="form-field__control" id="tour-date" type="date" name="tour-date">
-              </div>
-              <div class="form-field">
-                <label class="form-field__label" for="mountain">Гора або напрямок</label>
-                <select class="form-field__control" id="mountain" name="mountain">
-                  <option value="">Обери напрямок</option>
-                  <option value="hoverla">Говерла</option>
-                  <option value="pip-ivan">Піп Іван</option>
-                  <option value="synevyr">Синевир</option>
-                </select>
-              </div>
+            <div>
+              <label for="booking-phone" class="field__label">Номер телефону</label>
+              <input id="booking-phone" name="phone" type="tel" autocomplete="tel" placeholder="+380..." class="field__control">
             </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label class="form-field__label" for="difficulty">Складність</label>
-                <select class="form-field__control" id="difficulty" name="difficulty">
-                  <option value="">Будь-яка</option>
-                  <option value="easy">Легка</option>
-                  <option value="medium">Середня</option>
-                  <option value="hard">Висока</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label class="form-field__label" for="days">Кількість днів</label>
-                <input class="form-field__control" id="days" type="number" name="days" min="1" value="1">
-              </div>
+            <div class="form__full">
+              <label for="booking-message" class="field__label">Який маршрут тебе цікавить?</label>
+              <textarea id="booking-message" name="message" rows="3" placeholder="Наприклад, хочу піднятися на Говерлу..." class="field__control"></textarea>
             </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label class="form-field__label" for="guide-count">Кількість гідів</label>
-                <input class="form-field__control" id="guide-count" type="number" name="guides" min="1" value="1">
-              </div>
-              <div class="form-field">
-                <label class="form-field__label" for="equipment">Прокат спорядження</label>
-                <select class="form-field__control" id="equipment" name="equipment">
-                  <option value="no">Не потрібен</option>
-                  <option value="yes">Потрібен</option>
-                </select>
-              </div>
+            <div class="form__full">
+              <button type="submit" class="btn btn--lg btn--block">Надіслати заявку</button>
+              <p class="form__note">Надсилання форми через поштовий клієнт. Для повноцінного онлайн-бронювання потрібне підключення серверної обробки.</p>
             </div>
-            <div class="form-field">
-              <label class="form-field__label" for="transfer">Трансфер</label>
-              <select class="form-field__control" id="transfer" name="transfer">
-                <option value="no">Не потрібен</option>
-                <option value="yes">Потрібен</option>
-              </select>
-            </div>
-            <button class="button button--full" type="button">Підібрати тур</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--muted" id="guides" aria-labelledby="guides-title">
-        <div class="container guides-layout">
-          <div class="guides-visual" aria-hidden="true">
-            <div class="guides-visual__avatar">ГІД</div>
-            <div class="guides-visual__caption">Знання маршруту. Досвід. Безпека.</div>
-          </div>
-          <div class="guides-copy">
-            <div class="eyebrow">Люди, яким можна довіряти</div>
-            <h2 id="guides-title">Познайомся з нашими гідами</h2>
-            <p class="guides-copy__description">Досвід, підготовка, безпека та маршрути, які вони знають напам'ять.</p>
-            <a class="button" href="#contacts">Познайомитися з гідами</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="reviews" aria-labelledby="reviews-title">
-        <div class="container">
-          <div class="section__heading">
-            <div class="eyebrow">Враження мандрівників</div>
-            <h2 class="section__title" id="reviews-title">Історії з наших стежок</h2>
-          </div>
-          <div class="card-grid card-grid--three">
-            <article class="quote-card">
-              <span class="quote-card__stars" role="img" aria-label="Оцінка: 5 із 5">★★★★★</span>
-              <p class="quote-card__text">«Чудовий маршрут і дуже уважний гід. Похід був організований зрозуміло й спокійно».</p>
-              <div class="quote-card__author">Олена · перший похід</div>
-            </article>
-            <article class="quote-card">
-              <span class="quote-card__stars" role="img" aria-label="Оцінка: 5 із 5">★★★★★</span>
-              <p class="quote-card__text">«Зручно було заздалегідь зрозуміти складність і приблизну вартість подорожі».</p>
-              <div class="quote-card__author">Андрій · похід на вихідні</div>
-            </article>
-            <article class="quote-card">
-              <span class="quote-card__stars" role="img" aria-label="Оцінка: 5 із 5">★★★★★</span>
-              <p class="quote-card__text">«Неймовірні краєвиди та хороша команда. Хочу повернутися в гори знову».</p>
-              <div class="quote-card__author">Марія · груповий тур</div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="cta-section" aria-labelledby="cta-title">
-        <div class="container cta-section__inner">
-          <div class="cta-section__content">
-            <div class="eyebrow eyebrow--light">Час вирушати</div>
-            <h2 class="cta-section__title" id="cta-title">Твоя наступна історія починається в Карпатах</h2>
-            <p class="cta-section__description">Обери маршрут і зроби перший крок до пригоди.</p>
-          </div>
-          <a class="button button--light" href="#calculator">Підібрати тур</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer" id="contacts">
-      <div class="container footer__top">
-        <div class="footer__brand">
-
-
-
-
-<a class="logo logo--footer" href="#top"
-   aria-label="Зелені стежки Карпат — на початок сторінки">
-  <img class="logo__img" src="assets/logo_1.png" alt="Logo">
-  Зелені стежки Карпат
-</a>
-
-
-
-
-
-
-
-          <p class="footer__description">Відкривай Карпати разом із досвідченими гідами. Обирай маршрути, плануй мандрівки та насолоджуйся природою.</p>
-        </div>
-        <nav class="footer__column" aria-label="Навігація внизу сторінки">
-          <h3 class="footer__column-title">Навігація</h3>
-          <a class="footer__link" href="#tours">Тури</a>
-          <a class="footer__link" href="#guides">Наші гіди</a>
-          <a class="footer__link" href="#calculator">Ціни</a>
-          <a class="footer__link" href="#advantages">Про нас</a>
-        </nav>
-        <nav class="footer__column" aria-label="Послуги">
-          <h3 class="footer__column-title">Послуги</h3>
-          <a class="footer__link" href="#calculator">Калькулятор вартості</a>
-          <a class="footer__link" href="#calculator">Прокат спорядження</a>
-          <a class="footer__link" href="#calculator">Трансфер</a>
-          <a class="footer__link" href="#reviews">Відгуки мандрівників</a>
-        </nav>
-        <div class="footer__column footer__contacts">
-          <h3 class="footer__column-title">Контакти</h3>
-          <a class="footer__link" href="mailto:info@example.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@example.com</a>
-          <a class="footer__link" href="tel:+380000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> +380 00 000 00 00</a>
-          <h4 class="footer__social-title">Ми в соцмережах</h4>
-          <div class="footer__socials">
-            <a class="footer__social-link" href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a class="footer__social-link" href="https://www.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-            <a class="footer__social-link" href="https://t.me/" aria-label="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
-          </div>
+          </form>
         </div>
       </div>
-      <div class="container footer__bottom">
-        <span>© 2026 Зелені стежки Карпат. Усі права захищені.</span>
-      </div>
-    </footer>
-  </div>
+    </section>
 
-  <script src="js/script.js" defer></script>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#top" class="logo logo--footer">
+          <span class="logo__mark" aria-hidden="true">↗</span>
+          Carpatianstour
+        </a>
+        <p class="footer__text">Відкривай Карпати разом із досвідченими гідами. Обирай маршрути, плануй мандрівки та насолоджуйся природою.</p>
+      </div>
+
+      <nav aria-label="Навігація у футері">
+        <h2 class="footer__title">Навігація</h2>
+        <ul class="footer__list">
+          <li><a href="#tours" class="footer__link">Тури</a></li>
+          <li><a href="#media" class="footer__link">Відео</a></li>
+          <li><a href="#about" class="footer__link">Про нас</a></li>
+          <li><a href="#reviews" class="footer__link">Відгуки</a></li>
+          <li><a href="#location" class="footer__link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer__title">Контакти</h2>
+        <ul class="footer__list">
+          <li><a href="mailto:info@example.com" class="footer__link">info@example.com</a></li>
+          <li><a href="tel:+380000000000" class="footer__link">+380 00 000 00 00</a></li>
+        </ul>
+
+        <div class="socials">
+          <a href="https://www.instagram.com/" aria-label="Instagram" class="social">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" class="social">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://t.me/" aria-label="Telegram" class="social">
+            <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">© 2026 Carpatianstour. Усі права захищені.</div>
+  </footer>
+
 </body>
 </html>

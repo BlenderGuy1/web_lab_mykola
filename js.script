@@ -1,50 +1,60 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navigation = document.getElementById('mobile-navigation');
+(() => {
+  const header = document.querySelector('.header');
+  const panel = header && header.querySelector('.nav-mobile');
+  if (!header || !panel) return;
 
-  if (!menuToggle || !navigation) return;
+  // Шукаємо вже існуючу кнопку в HTML або створюємо її, якщо її немає
+  let burger = header.querySelector('.burger');
+  
+  panel.id = panel.id || 'mobile-menu';
 
-  const toggleMenu = (show) => {
-    const isOpen = show !== undefined ? show : !navigation.classList.contains('navigation--open');
-    
-    navigation.classList.toggle('navigation--open', isOpen);
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
-    document.body.classList.toggle('no-scroll', isOpen); // Блокує скрол сторінки при відкритому меню
+  if (!burger) {
+    const inner = header.querySelector('.header__inner');
+    if (!inner) return;
+    burger = document.createElement('button');
+    burger.type = 'button';
+    burger.className = 'burger';
+    burger.innerHTML = '<span class="burger__icon" aria-hidden="true"></span>';
+    inner.append(burger);
+  }
+
+  burger.setAttribute('aria-label', 'Відкрити меню');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-controls', panel.id);
+  header.classList.add('header--js');
+
+  const setOpen = (open) => {
+    panel.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Закрити меню' : 'Відкрити меню');
   };
 
-  // Перемикання за кнопкою
-  menuToggle.addEventListener('click', () => toggleMenu());
+  // Перемикання при кліку на бургер
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!panel.classList.contains('is-open'));
+  });
 
-  // Закриття при кліку на будь-яке посилання всередині меню
-  navigation.addEventListener('click', (event) => {
-    if (event.target.closest('a')) {
-      toggleMenu(false);
+  // Закриваємо меню після вибору будь-якого пункту
+  panel.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  // Натискання Esc закриває меню й повертає фокус на кнопку
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+      setOpen(false);
+      burger.focus();
     }
   });
 
-  // Закриття клавішею Escape
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && navigation.classList.contains('navigation--open')) {
-      toggleMenu(false);
-    }
+  // Клік поза межами шапки закриває меню
+  document.addEventListener('click', (e) => {
+    if (!header.contains(e.target)) setOpen(false);
   });
 
-  // Закриття при кліку за межами меню
-  document.addEventListener('click', (event) => {
-    const isClickInside = navigation.contains(event.target) || menuToggle.contains(event.target);
-    if (!isClickInside && navigation.classList.contains('navigation--open')) {
-      toggleMenu(false);
-    }
+  // При переході на десктопний розмір (>= 1024px) автоматично закриваємо мобільне меню
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+    if (e.matches) setOpen(false);
   });
-});
-
-
-// Автоматично закривати меню під час прокручування
-window.addEventListener("scroll", () => {
-  const navigation = document.querySelector(".navigation");
-
-  if (navigation && navigation.classList.contains("navigation--open")) {
-    navigation.classList.remove("navigation--open");
-  }
-});
+})();
