@@ -11,7 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link 
+  rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+  media="print" 
+  onload="this.media='all'">
+
 
   <script src="js.script" defer></script>
 </head>
@@ -26,7 +32,7 @@
 
 
 <a href="#top" class="logo">
-  <img class="logo__mark" src="assets/logo_1.png" alt="Логотип Зелені стежки Карпат">
+  <img class="logo__mark" src="assets/logo_1.webp" alt="Логотип Зелені стежки Карпат">
   CarpatiansTour
       </a>
 
@@ -82,7 +88,7 @@
           </div>
         </div>
         <div class="hero__media">
-          <img src="assets/hero_bg.png" alt="Гірський краєвид Карпат із туристкою, яка планує маршрут на телефоні" class="hero__img">
+          <img src="assets/hero_bg.webp" alt="Гірський краєвид Карпат із туристкою, яка планує маршрут на телефоні" class="hero__img">
           <div class="hero__caption">
             <p class="hero__caption-title">Карпати чекають</p>
           </div>
@@ -101,7 +107,7 @@
         <div class="grid grid--tours">
           <article class="card">
             <div class="card__media">
-              <img src="assets/carpatians_haliavuna.jpg" alt="Гірський пейзаж на маршруті сходження на Говерлу" loading="lazy" class="card__img">
+              <img src="assets/carpatians_haliavuna.webp" alt="Гірський пейзаж на маршруті сходження на Говерлу" loading="lazy" class="card__img">
               <span class="tag">Популярний маршрут</span>
             </div>
             <div class="card__body">
@@ -112,7 +118,7 @@
           </article>
           <article class="card">
             <div class="card__media">
-              <img src="assets/carpatu_path.jpg" alt="Гірська стежка на маршруті до вершини Петрос" loading="lazy" class="card__img">
+              <img src="assets/carpatu_path.webp" alt="Гірська стежка на маршруті до вершини Петрос" loading="lazy" class="card__img">
               <span class="tag tag--amber">Для досвідчених</span>
             </div>
             <div class="card__body">
@@ -133,7 +139,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="assets/doluna.jpg" alt="Панорамний краєвид на карпатські гірські хребти" loading="lazy" class="card__img">
+            <img src="assets/doluna.webp" alt="Панорамний краєвид на карпатські гірські хребти" loading="lazy" class="card__img">
             <div class="card__body">
               <h3 class="card__title">Карпатські панорами</h3>
               <p class="card__text">Легкий маршрут із краєвидами на гірські хребти.</p>
@@ -141,7 +147,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="assets/path_carpatians.jpg" alt="Кам'яниста стежка серед гірського лісу в Ґорґанах" loading="lazy" class="card__img">
+            <img src="assets/path_carpatians.webp" alt="Кам'яниста стежка серед гірського лісу в Ґorґanах" loading="lazy" class="card__img">
             <div class="card__body">
               <h3 class="card__title">Стежками Ґорґан</h3>
               <p class="card__text">Досліди дикі стежки, ліси та кам'янисті вершини.</p>
@@ -149,7 +155,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="assets/house_carpatians.jpg" alt="Затишний будинок серед карпатських гір" loading="lazy" class="card__img">
+            <img src="assets/house_carpatians.webp" alt="Затишний будинок серед карпатських гір" loading="lazy" class="card__img">
             <div class="card__body">
               <h3 class="card__title">Відпочинок у горах</h3>
               <p class="card__text">Спокійна прогулянка, свіже повітря та автентичні краєвиди.</p>
@@ -168,15 +174,27 @@
           <h2 id="media-title" class="section__title">Відеотур Карпатами</h2>
           <p class="section__lead">Побач красу гірських пейзажів і надихнися на власну мандрівку.</p>
         </div>
+
+
+
+
         <div class="video">
-          <iframe
-            src="https://www.youtube.com/embed/NcV_Dyvbcbg"
-            title="Відеотур Карпатами - Carpatianstour"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+
+<iframe
+  src="https://www.youtube-nocookie.com/embed/NcV_Dyvbcbg"
+  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/NcV_Dyvbcbg?autoplay=1><img src=https://img.youtube.com/vi/NcV_Dyvbcbg/hqdefault.jpg alt='Відеотур Карпатами'><span>▶</span></a>"
+  title="Відеотур Карпатами - Carpatianstour"
+  loading="lazy"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+
         </div>
+
+
+
+
+
       </div>
     </section>
 
@@ -202,14 +220,43 @@
             </li>
           </ul>
         </div>
-        <div class="panel">
-          <div class="panel__grid">
-            <div class="tile"><span class="tile__icon" aria-hidden="true">⌖</span><h3 class="tile__title">Маршрути</h3><p class="tile__text">Від легких прогулянок до сходжень на вершини.</p></div>
-            <div class="tile"><span class="tile__icon" aria-hidden="true">♧</span><h3 class="tile__title">Природа</h3><p class="tile__text">Ліси, озера та панорами Карпат.</p></div>
-            <div class="tile"><span class="tile__icon" aria-hidden="true">♙</span><h3 class="tile__title">Гіди</h3><p class="tile__text">Підтримка та поради під час планування.</p></div>
-            <div class="tile"><span class="tile__icon" aria-hidden="true">◇</span><h3 class="tile__title">Підготовка</h3><p class="tile__text">Поради щодо спорядження та умов маршруту.</p></div>
-          </div>
-        </div>
+
+
+        <div class="panel__grid">
+  <div class="tile">
+    <span class="tile__icon" aria-hidden="true">
+      <i class="fa-solid fa-route"></i>
+    </span>
+    <h3 class="tile__title">Маршрути</h3>
+    <p class="tile__text">Від легких прогулянок до сходжень на вершини.</p>
+  </div>
+
+  <div class="tile">
+    <span class="tile__icon" aria-hidden="true">
+      <i class="fa-solid fa-tree"></i>
+    </span>
+    <h3 class="tile__title">Природа</h3>
+    <p class="tile__text">Ліси, озера та панорами Карпат.</p>
+  </div>
+
+  <div class="tile">
+    <span class="tile__icon" aria-hidden="true">
+      <i class="fa-solid fa-person-hiking"></i>
+    </span>
+    <h3 class="tile__title">Гіди</h3>
+    <p class="tile__text">Підтримка та поради під час планування.</p>
+  </div>
+
+  <div class="tile">
+    <span class="tile__icon" aria-hidden="true">
+      <i class="fa-solid fa-compass"></i>
+    </span>
+    <h3 class="tile__title">Підготовка</h3>
+    <p class="tile__text">Поради щодо спорядження та умов маршруту.</p>
+  </div>
+</div>
+
+
       </div>
     </section>
 
@@ -336,7 +383,7 @@
 
         
 <a href="#top" class="logo">
-  <img class="logo__mark" src="assets/logo_1.png" alt="Логотип Зелені стежки Карпат">
+  <img class="logo__mark" src="assets/logo_1.webp" alt="Логотип Зелені стежки Карпат">
   CarpatiansTour
         </a>
 
